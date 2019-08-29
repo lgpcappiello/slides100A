@@ -1,0 +1,54 @@
+\begin{frame}{Sample Size Calculation}
+    Exactly how many observations do we need to get an accurate estimate?
+\end{frame}
+
+\begin{frame}{Example: Sample Size Calculation}
+    Suppose a manufacturer claims that he is 95\% confident that the proportion of defective units coming from his factory is 2\%. We want to examine this claim at a margin of error no greater than 0.5\%. How many samples do we need?
+\end{frame}
+
+\begin{frame}{Example: Sample Size Calculation}
+    For our proportion, we will consider a Bernoulli distribution with $p=0.02$. We will calculate the $n$ for this distribution. Then
+    \[
+        \mu = p = 0.02
+    \]
+    and
+    \[
+        sd = \sqrt{p(1-p)} = \sqrt{0.02\times0.98} = 0.14
+    \]
+\end{frame}
+
+\begin{frame}{Example: Sample Size Calculation}
+    The margin of error (MoE) is 
+    \begin{align*}
+        \text{MoE} &= z_{\alpha/2}\times SE \\
+        &= z_{0.05/2}\times\frac{sd}{\sqrt{n}} \\
+        &= 1.96 \times \frac{0.14}{\sqrt{n}}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example: Sample Size Calculation}
+    Note that this is a 95\% confidence claim and we want the margin of error (MoE) to be $\le0.005$. So
+    \begin{align*}
+        0.005 &\ge MoE \\
+        0.005 &\ge 1.96 \times \frac{0.14}{\sqrt{n}}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example: Sample Size Calculation}
+    Solving for $n$,
+    \[
+        n \ge \left(1.96 \times \frac{0.14}{0.005}\right)^2 = 3011.814
+    \]
+    \begin{itemize}
+        \item Since $n \ge 3011.814$ and we need a whole number of samples, we will always round up! 
+        \item We will need at least 3012 samples to achieve a margin of error of no more than 0.5\%.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sample Size Calculations}
+    In general, for a confidence interval,
+    \[
+        n \ge \left(z_{\alpha/2}\times\frac{sd}{MoE}\right)^2
+    \]
+    where $MoE$ is the desired maximum margin of error. We will always round $n$ up to the nearest integer.
+\end{frame}

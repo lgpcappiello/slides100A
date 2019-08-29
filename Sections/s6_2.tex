@@ -1,0 +1,120 @@
+\begin{frame}{Difference of Two Proportions}
+    \begin{itemize}
+        \item We will extend the methods for hypothesis tests for $p$ to methods for $p_1-p_2$.
+        \item This is the difference of proportions for two different groups or populations.
+        \item The point estimate for $p_1-p_2$ is $\hat{p}_1-\hat{p}_2$.
+        \item We will develop a framework for use of the normal distribution and a new standard error formula.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Conditions for Normality}
+    $\hat{p}_1-\hat{p}_2$ may be modeled using a normal distribution when
+    \begin{itemize}
+        \item The data are independent within and between groups. 
+        \begin{itemize}
+            \item This should hold if the data from from a randomized experiment or from two independent random samples.
+        \end{itemize}
+        \item Success-failure condition holds for both groups.
+        \[
+            n_1 p_1 \ge 10 \quad \text{and}\quad n_1 (1-p_1) \ge 10
+        \]
+        and
+        \[
+            n_2 p_2 \ge 10 \quad \text{and}\quad n_2 (1-p_2) \ge 10
+        \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Standard Error}
+    When the normality conditions hold, the standard error of $\hat{p}_1-\hat{p}_2$ is
+    \[
+        SE = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
+    \]
+    where $p_1$ and $p_2$ are the proportions and $n_1$ and $n_2$ are their respective sample sizes.
+\end{frame}
+
+\begin{frame}{Confidence Intervals}
+    We can again use our generic confidence interval formula
+    \[
+        \text{point estimate} \pm \text{critical value} \times SE
+    \]
+    now as
+    \[
+        \hat{p}_1-\hat{p}_2 \pm z_{\alpha/2}\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
+    \]
+\end{frame}
+
+\begin{frame}{Confidence Intervals}
+    The intervals are interpreted as before. E.g.,:
+    
+    \vspace{12pt}One can be 95\% confident that the true difference in proportions is between lower bound and upper bound.
+\end{frame}
+
+\begin{frame}{Hypothesis Tests: Example}
+    \begin{itemize}
+        \item A 30-year study was conducted with nearly 90,000 female participants.
+        \item During a 5-year screening period, each woman was randomized to one of two groups: regular mammograms or regular non-mammogram breast cancer exams.
+        \item No intervention was made during the following 25 years of the study, and we’ll consider death resulting from breast cancer over the full 30-year period.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hypothesis Tests: Example}
+    Over the 30-year period,
+    \begin{itemize}
+        \item of the 44,925 women receiving mammograms, 500 died from breast cancer.
+        \item of the 44,910 women receiving other cancer detection exams, 505 died from breast cancer.
+    \end{itemize}
+    Create a contingency table for these data.
+\end{frame}
+
+\begin{frame}{Hypothesis Tests: Example}
+    Set up the hypotheses for these data.
+\end{frame}
+
+\begin{frame}{Special Case}
+    When $H_0$: $p_1=p_2$, we use a special \textbf{pooled proportion} to check the success-failure condition:
+    \[
+        \hat{p}_{pooled} = \frac{\text{number of "yes"}}{\text{total number of cases}} = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}
+    \]
+    Note that this is usually the null hypothesis used in tests for two proportions.
+\end{frame}
+
+\begin{frame}{Hypothesis Tests: Example}
+    Let's calculate $\hat{p}_{pooled}$ or our mammograms example.
+    
+    \vspace{12pt}We will use this to check the success-failure condition.
+\end{frame}
+
+\begin{frame}{Pooled Standard Error}
+    When $H_0$: $p_1=p_2$, the standard error is calculated as
+    \[
+        SE_{pooled} = \sqrt{\frac{p_{pooled}(1-p_{pooled})}{n_1} + \frac{p_{pooled}(1-p_{pooled})}{n_2}}
+    \]
+\end{frame}
+
+\begin{frame}{Hypothesis Tests: Example}
+    Let's find the point estimate and standard error for our mammograms example.
+\end{frame}
+
+\begin{frame}{Test Statistic}
+    As before, the test statistic is calculated as
+    \[
+        ts = z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{(\hat{p}_1 - \hat{p}_2) - (\text{null value})}{SE}
+    \]
+\end{frame}
+
+\begin{frame}{Hypothesis Tests: Example}
+    For our mammograms example, the null value is 0, so
+    \[
+        ts = z = \frac{(\hat{p}_1 - \hat{p}_2)}{SE}
+    \]
+    The critical value is $z_{\alpha/2}$. At the 0.05 level of significance, $z_{0.025}=1.96$.
+\end{frame}
+
+\begin{frame}{Hypothesis Tests: Example}
+    Since $|z_{0.025}| = 1.96 > |z| = |-0.17| = 0.17$,
+    \begin{itemize}
+        \item we fail to reject the null hypothesis.
+        \item there is insufficient evidence to suggest that mammograms are either helpful or harmful.
+    \end{itemize}
+\end{frame}

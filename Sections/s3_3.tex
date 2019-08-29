@@ -1,0 +1,167 @@
+\begin{frame}{Sampling From a Small Population}
+    \begin{itemize}
+        \item Usually we sample only a very small fraction of the population.
+        \item However, we may occasionally sample more than 10\% of the population without replacement.
+        \begin{itemize}
+            \item Without replacement means we do not have a chance of sampling the same cases twice.
+            \item Think back to the raffle drawing: without replacement is when we pull 10 raffle tickets without putting any of those tickets back.
+        \end{itemize}
+        \item This can be important for how we analyze the sample.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example: Sandwiches}
+    Suppose we have
+    \begin{itemize}
+        \item Two types of bread.
+        \item Four types of filling.
+        \item Three different condiments.
+    \end{itemize}
+    Assume we use only one of each category.
+    
+    \vspace{12pt}How many different types of sandwiches can we make?
+\end{frame}
+
+\begin{frame}{Example: Sandwiches}
+    We can visualize this using a tree diagram. Let's do this on the board.
+\end{frame}
+
+\begin{frame}{Example: Sandwiches}
+    We can also calculate the number of different possible sandwiches directly.
+    \begin{itemize}
+        \item First, we choose one of two types of bread. 
+        \item For each bread choice, we can choose one of four filling types. 
+        \begin{itemize}
+            \item This makes $2\times 4=8$ combinations.
+        \end{itemize}
+        \item Then we choose one of three condiments.
+        \begin{itemize}
+            \item Each of our 8 combinations can branch into 3 further options, for a total of $8\times3=24$ combinations.
+        \end{itemize}
+    \end{itemize}
+    Therefore, there are $2*4*3=24$ combinations.
+\end{frame}
+
+\begin{frame}{Example: Sandwiches}
+    Now that we know the possible number of sandwiches, we can calculate the probability of any particular sandwich.
+    
+    \vspace{12pt}If we grab bread, filling, and a condiment at random, what's the probability that we get a cheese sandwich on rye with mayonnaise?
+    
+    \vspace{12pt}This is one of 24 combinations, so $P($rye and cheese and mayo$)=1/24$.
+\end{frame}
+
+\begin{frame}{Example: Sandwiches}
+    If we chose a sour dough and then grabbed filling and a condiment at random, what's the probability that we put cheese and mustard on our sandwich?
+    
+    \vspace{12pt}Now we want to know $P($cheese and mustard | sourdough$)$.
+    \small\[
+        P(\text{cheese and mustard }|\text{ sourdough}) = \frac{P(\text{cheese and mustard and sourdough})}{P(\text{sourdough})}
+    \]
+\end{frame}
+
+\begin{frame}{Example: Sandwiches}
+    Now, cheese and mustard and sourdough is one particular combination out of our eight possible combinations so
+    \[
+        P(\text{cheese and mustard and sourdough}) = 1/24
+    \]
+    and sourdough is one of two possible breads, so 
+    \[
+        P(\text{sourdough}) = 1/2.
+    \]
+\end{frame}
+
+\begin{frame}{Example: Sandwiches}
+    If we chose a sour dough and then grabbed filling and a condiment at random, what's the probability that we put cheese and mustard on our sandwich?
+    
+    \vspace{12pt}Plugging in,
+    \small\begin{align*}
+        P(\text{cheese and mustard }|\text{ sourdough}) &= \frac{P(\text{cheese and mustard and sourdough})}{P(\text{sourdough})} \\
+        &= \frac{1}{24}\bigg/\frac{1}{2} \\
+        &= 1/12
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example}
+    Suppose your discussion TA asks 3 questions and calls on people at random to answer them. Assume that he will not call on the same person twice.
+    
+    \vspace{12pt}What is the probability that you will not be selected?
+\end{frame}
+
+\begin{frame}{Example}
+    Suppose there are 25 people in your discussion. 
+    \begin{itemize}
+        \item For the first question, your TA will choose 1 of 25 students.
+        \begin{itemize}
+            \item You have a $24/25=0.960$ chance of \textit{not} being selected.
+        \end{itemize}
+        \item For the second question, your TA will choose 1 of the 24 people who have not yet been called on.
+        \begin{itemize}
+            \item You have a $23/24=0.0.958$ chance of \textit{not} being selected.
+        \end{itemize}
+        \item For the final question, your TA will choose 1 of the 23 people who have not yet been called on.
+        \begin{itemize}
+            \item You have a $22/23=0.957$ chance of \textit{not} being selected.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+    Then, based on the General Multiplication Rule
+    \small{\begin{align*}
+        P(&\texttt{Q1}=\texttt{not selected}\text{ and } \texttt{Q2}=\texttt{not selected}\text{ and } \texttt{Q3}=\texttt{not selected}) \\
+        &= \frac{24}{25}\times \frac{23}{24}\times \frac{22}{23} \\
+        &= \frac{22}{25} = 0.88
+    \end{align*}}
+\end{frame}
+
+\begin{frame}{Example}
+    The three probabilities we computed were actually one marginal probability:
+    \[
+        P(\texttt{Q1}=\texttt{not selected})
+    \]
+    and two conditional probabilities:
+    \begin{align*}
+        &P (\texttt{Q2} = \texttt{not selected } | \texttt{ Q1} = \texttt{not selected}) \\
+        &P (\texttt{Q3} = \texttt{not selected } | \texttt{ Q1} = \texttt{not selected}, \texttt{ Q2} = \texttt{not selected}).
+    \end{align*}
+    Using the General Multiplication Rule, the product of these three probabilities is the probability of not being picked in 3 questions.
+\end{frame}
+
+\begin{frame}{Small Sample Probabilities}
+    When it comes to small samples...
+    \begin{itemize}
+        \item If we sample from a small population \textbf{without replacement}, we no longer have independence between our observations.
+        \item If we sample from a small population \textbf{with replacement}, we have independent observations.
+    \end{itemize}
+    The key to working with small sample probabilities is to determine which sampling method was used.
+\end{frame}
+
+\begin{frame}{Example: Socks}
+    In your sock drawer you have 4 blue, 5 grey, and 3 black socks. You grab 2 socks at random and put them on. 
+    
+    \vspace{12pt}Find the probability you end up wearing matching socks.
+\end{frame}
+
+\begin{frame}{Example: Socks}
+    \textbf{Find the probability you end up wearing matching socks.}
+    
+    \vspace{12pt}There are three ways to get matching socks:
+    \begin{enumerate}
+        \item $P(\text{blue and blue}) = 4/12 \times 3/11 = 0.0909$
+        \item $P(\text{grey and grey})=5/12 \times 4/11 = 0.1515$
+        \item $P(\text{black and black})=3/12 \times 2/11 = 0.0455$
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Example: Socks}
+    \textbf{Find the probability you end up wearing matching socks.}
+    
+    \vspace{12pt}We want to find
+    \begin{align*}
+        P(&\text{matching socks}) \\
+        &=P(\text{blue and blue OR grey and grey OR black and black}) \\
+        &= P(\text{blue and blue}) + P(\text{grey and grey}) + P(\text{black and black}) \\
+        &= 0.0909 + 0.1515 + 0.0455 \\
+        &= 0.2879.
+    \end{align*}
+\end{frame}

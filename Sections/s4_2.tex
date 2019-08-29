@@ -1,0 +1,142 @@
+\begin{frame}{Example: Insurance Deducibles}
+    \begin{itemize}
+        \item Suppose a health insurance company found that 70\% of the people they insure stay below their deductible in any given year.
+        \item Each of these people can be thought of as a single trial in a study.
+        \item We label a person a "success" if their healthcare costs do not exceed the deductible.
+        \begin{itemize}
+            \item $P(\texttt{success})=p=0.7$
+            \item $P(\texttt{failure})=1-p=0.3$
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Bernoulli Distribution}
+    \begin{itemize}
+        \item When an individual trial only has two possible outcomes it is called a Bernoulli random variable.
+        \begin{itemize}
+            \item These outcomes are often labeled as success or failure.
+        \end{itemize}
+        \item \textit{These labels can be completely arbitrary!}
+        \begin{itemize}
+            \item We called "not hitting the deductible" a "success", but we could just as well have labeled that the "failure".
+            \item The framework we use to talk about the Bernoulli distribution does not depend on the label we use.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Bernoulli Distribution}
+    Bernoulli random variables are often denoted as \texttt{1} for a success and \texttt{0} for a failure. 
+    
+    \vspace{12pt}This makes data entry easy and is mathematically convenient. 
+    
+    \vspace{12pt}Suppose we observe ten trials:
+    \[
+        1, \quad 1, \quad 1, \quad 0, \quad 1, \quad 0, \quad 0, \quad 1, \quad 1, \quad 0
+    \]
+\end{frame}
+
+\begin{frame}{The Sample Proportion}
+    The \textbf{sample proportion}, $\hat{p}$, will be the sample mean for these observations:
+    \begin{align*}
+        \hat{p} &= \frac{\text{\# of successes}}{\text{\# of trials}} \\
+        \\
+        &= \frac{1 + 1 + 1 + 0 + 1 + 0 + 0 + 1 + 1 + 0 }{10} \\
+        \\
+        &= 0.6
+    \end{align*}
+\end{frame}
+
+\begin{frame}{The Bernoulli Random Variable}
+    \begin{itemize}
+        \item It is useful to think about a Bernoulli random variable as a random process with only two outcomes: a success or failure (or yes/no). 
+        \item Then we code a success as 1 and a failure as 0.
+        \item These are just numbers, so we can define the mean and variance.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Bernoulli Random Variable}
+    If $X$ is a random variable that takes the value 1 with probability of success $p$ and 0 with probability $1 − p$, then $X$ is a \textbf{Bernoulli random variable} with mean 
+    \[
+        \mu = p
+    \]
+    and variance
+    \[
+        \sigma^2 = p(1-p).
+    \]
+\end{frame}
+
+\begin{frame}{The Bernoulli Distribution}
+    \begin{itemize}
+        \item Remember that we can estimate $p$ using $\hat{p}=\bar{x}$.
+        \item We can use this to estimate the mean the variance.
+        \item For our insurance deductible example, we found $\hat{p}=0.6$
+        \item So we can estimate 
+            
+    \end{itemize}
+    \[
+        \hat{\mu} = \hat{p} = 0.6
+    \]
+    \hspace{1cm} and
+    \[
+        \hat{\sigma^2} = \hat{p}(1-\hat{p}) = 0.6*0.4 = 0.24
+    \]
+\end{frame}
+
+\begin{frame}{Example}
+    Derive the mean and variance of a Bernoulli random variable.
+\end{frame}
+
+\begin{frame}{Example}
+    Because there are only 2 possible outcomes, the Bernoulli distribution describes a \textit{discrete random variable}. 
+    
+    \vspace{12pt}Therefore, We can start with its probability distribution table:
+    \begin{center}
+        \begin{tabular}{| l | c c |}
+            \hline
+            $x$ & $0$ & $1$ \\ \hline
+            $P(x)$ & $p$ & $(1-p)$ \\ \hline
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Example}
+    Then for the expected value,
+    \begin{center}
+        \begin{tabular}{| l | c c | c |}
+            \hline
+            $x$ & $1$ & $0$ & Total\\ \hline 
+            $P(x)$ & $p$ & $(1-p)$ &  \\ \hline
+            $xP(x)$ & $p$ & $0$ & $p$ \\ \hline
+        \end{tabular}
+    \end{center}
+    
+    \vspace{12pt} So the expected value is (as expected) $p$!
+\end{frame}
+
+\begin{frame}{Example}
+    And for the variance,
+    \begin{center}
+        \begin{tabular}{| c | c c | c |}
+            \hline
+            $x$ & $1$ & $0$ & Total\\ \hline 
+            $P(x)$ & $p$ & $(1-p)$ &  \\ \hline
+            $xP(x)$ & $p$ & $0$ & $p$ \\ \hline
+            $x-E(x)$ & $1-p$ & $-p$ &  \\ \hline
+            $[x-E(x)]^2$ & $(1-p)^2$ & $p^2$ & \\ \hline 
+            $P(x)[x-E(x)]^2$ & $p(1-p)^2$ & $(1-p)p^2$ & $p(1-p)^2 + (1-p)p^2$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Example}
+    Then
+    \begin{align*}
+        Var(X) &= p(1-p)^2 + (1-p)p^2 \\
+        &= p-2p^2+p^3 + p^2-p^3 \\
+        &= p-2p^2+p^2 \\
+        &= p-p^2 \\
+        &= p(1-p)
+    \end{align*}
+    \vspace{12pt}Which is the Var(X) we wanted!
+\end{frame}
